@@ -1,4 +1,4 @@
-# API STARTER PACKAGE
+## API STARTER PACKAGE
 
 
 This is a laravel package that helps you start of building a laravel api. It contains useful command generators to generate various files for your api and is completely configurable. The generators include:
@@ -10,9 +10,9 @@ This is a laravel package that helps you start of building a laravel api. It con
 * `starter:transformer <name> --fields[=FIELDS] --includes[=INCLUDES]`
  
 
-##Usage
+## Usage
 
-###Step 1: Install the composer packages
+### Step 1: Install the composer packages
 
 Add
 ```json
@@ -27,56 +27,56 @@ Run in terminal
  
     composer require ralphowino/restful-api-helper 1.0.x-dev.
 
-###Step 2: Add the Service Provider
+### Step 2: Add the Service Provider
 
 Add the service provider in `config/app.php`:  
 
     Ralphowino\ApiStarter\ApiStarterServiceProvider::class
 
-###Step 3: Publish the packages configuration files
+### Step 3: Publish the packages configuration files
 
 Publish the package's assets by running 
 
     php artisan vendor:publish --provider="Ralphowino\ApiStarter\ApiStarterServiceProvider"
 
-###Step 4: Initialize the starter
+### Step 4: Initialize the starter
 
 Initialize the project by running 
 
     php artisan starter:init
 
-###Step 5: Generate a new jwt token
+### Step 5: Generate a new jwt token
 
 Generate a new jwt token for the application by running 
 
     php artisan jwt:generate
 
-###Commands
+### Commands
 
-####1. starter:init
-#####Description
+#### 1. starter:init
+##### Description
 This command is used to initialize the package directory structure on the application and setup the API document structures as should 
 be. It also sets up authentication for the API straight out of the box.
-#####Arguments
+##### Arguments
 *No arguments for this command*
-#####Options
+##### Options
 *This command has no options for it's execution*
 
-####2. starter:model
-#####Description
+#### 2. starter:model
+##### Description
 This command allows you to create a model for the api it will automatically extend the Base Model which is completely
 configurable from the starter.php config file and saves the model to the set out path in the starter.php config file.
-#####Arguments
+##### Arguments
 * `name` - The name of the model class (*Preferred to be singular*)
 
-#####Options
+##### Options
 * `--archive` - This option selects whether the model being created uses soft-delete
 * `--migration` - This option generates a migration along with the model being created
 * `--schema` - This option sets the fields for the model and if a migration is to be created adds the fields to the migration
 * `--table` - This option is used to explicitly set the table name for the model
 * `--relationships` - This option is used to set the relationships for the model
 
-#####Example
+##### Example
 
     php artisan starter:model Task --schema="title:string priority:string:nullable" --archive --relationships="user:belongsTo, goals:hasMany"
 
@@ -132,18 +132,18 @@ class Task extends BaseModel
 }
 ```
 
-####3. starter:migration
+#### 3. starter:migration
 This command is used to create a migration 
 
-#####Arguments
+##### Arguments
 * `name` -  The name of the migration
 
-#####Options
+##### Options
 * `--schema`  - This option adds the fields for the migration
 * `--model`   - This option creates a model along with the migration
 * `--archive` - This option adds soft deletes to the migration
 
-#####Example
+##### Example
 
     php artisan starter:migration create_tasks_table --schema="name:string:unique, slug:string:nullable" --archive
 
@@ -187,18 +187,18 @@ class CreateTasksTable extends Migration
 }
 ```
 
-####4. starter:controller
+#### 4. starter:controller
 This command creates a controller for the application and extends the BaseController automatically and is saved in the specified
 folder in the config file although all this is fully configurable in the config file. The controller uses the resourceful trait
 straight of the box.
 
-#####Arguments
+##### Arguments
 * `name` - The name of the controller
 
-#####Options
+##### Options
 * `--plain` - This option does not include the resourceful trait in the controller
 
-#####Example
+##### Example
 
     php artisan starter:controller TasksController
 
@@ -273,16 +273,16 @@ class TasksController extends Controller
 }
 ```
 
-####5. starter:repository
+#### 5. starter:repository
 This command creates a repository for the application in the configured path in the configuration file.
 
-#####Arguments
+##### Arguments
 * `name` - The name of the model
 
-#####Options
+##### Options
 * `--model` - This option creates the model linked to the repository as it creates the repository
 
-#####Example
+##### Example
 
     php artisan starter:repository Task
 
@@ -318,17 +318,17 @@ class TasksRepository extends BaseRepository
 }
 ```
 
-####6. starter:transformer
+#### 6. starter:transformer
 This command creates a transformer for the application, the transformer is saved in the specified path in the configuration file.
 
-#####Arguments
+##### Arguments
 * `name` - The name of the model linked to the transformer
 
-#####Options
+##### Options
 * `--fields` - The fields to be included in the transformer
 * `--includes` - This are the includes for the transformer
 
-#####Exampl
+##### Example
 
     php artisan starter:transformer Task --fields="name,slug" --includes="user:item, comments:collection, goal, elements"
 
@@ -431,7 +431,7 @@ class TaskTransformer extends TransformerAbstract
 }
 ```
 
-##Configuration
+## Configuration
 You can configure the destinations of the files generated by configuring the paths to the various files in the `config/starter.php` configuration file
 
 
