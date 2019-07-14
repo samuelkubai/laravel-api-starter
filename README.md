@@ -1,5 +1,4 @@
-#API STARTER PACKAGE
-[![Build Status](https://travis-ci.org/ralphowino/restful-api-helper.svg?branch=master)](https://travis-ci.org/ralphowino/restful-api-helper)
+# API STARTER PACKAGE
 
 
 This is a laravel package that helps you start of building a laravel api. It contains useful command generators to generate various files for your api and is completely configurable. The generators include:
